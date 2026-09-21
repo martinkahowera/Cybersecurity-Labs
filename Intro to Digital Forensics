@@ -1,0 +1,40 @@
+# 🎯 Objective
+Just like how after a crime is committed, little bits and pieces of evidence are always left behind by the culprit—from something as small as facial hair to bigger things like footprints left while leaving the scene—no matter how much is removed or cleaned to hide evidence, there will always be that one bit of evidence that leads investigators to the culprit. 
+
+With that being said, the digital world is also like a crime scene that keeps footprints of all your actions, even if an attempt to cover it up was made. Digital Forensics helps us uncover all these bits of evidence to reveal information essential to investigations.
+
+---
+
+# 🛠️ Tools & Technologies Used
+
+### pdfinfo
+In the scenario given in this room, we had to uncover metadata information through a PDF that was once a Word document. 
+
+When creating a file, the operating system records data tied to it—such as the creator, date created, and when it was last modified. A great example of this is when you list the contents within a directory using `ls -h` on Linux, showing you all the details of the contents inside. 
+
+`pdfinfo` runs under that same concept by providing us with all the metadata we need regarding the PDF file. 
+* **OS Used:** Kali Linux
+* **Installation Command:** `sudo apt install poppler-utils`
+
+### exiftool
+`exiftool` is a tool used to gather information embedded inside an image, such as:
+* Camera model / Smartphone model
+* Date and time of image capture
+* Photo settings (focal length, aperture, shutter speed, ISO settings)
+* GPS location coordinates
+* **Installation Command:** `sudo apt install libimage-exiftool-perl`
+
+---
+
+# 🔑 Key Concepts Learned
+* **Concept 1:** `pdfinfo` gives you underlying metadata about a PDF file (creator, modification date, software producer, etc.).
+* **Concept 2:** Photo EXIF data gives you information on a photograph—like when it was taken, what device was used to take it, camera settings, and exact GPS coordinates.
+
+---
+
+# 📝 Step-by-Step Walkthrough & Evidence
+
+### Task 1: Finding the PDF Author
+1. **Finding the file:** I was asked to find the name of the person who created the PDF file called `ransom-letter.pdf`. I initially ran the command:
+   ```bash
+   sudo pdfinfo ransom-letter.pdf
