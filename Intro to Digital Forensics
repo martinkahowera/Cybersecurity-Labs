@@ -38,3 +38,23 @@ When creating a file, the operating system records data tied to it—such as the
 1. **Finding the file:** I was asked to find the name of the person who created the PDF file called `ransom-letter.pdf`. I initially ran the command:
    ```bash
    sudo pdfinfo ransom-letter.pdf
+I got an error saying No such file or directory, so I knew I had to first locate where this letter was stored in the terminal.
+2. Navigating directories: I ran ls to see what directories were available. I spotted one called Rooms. Since this is a learning room, the most obvious place for me to find it was inside Rooms.
+3. Locating the target: I changed my directory to Rooms (cd Rooms) and ran ls again. I saw a whole list of room names and spotted one titled introdigitalforensics.
+4. Extracting the answer: I entered that directory (cd introdigitalforensics) and found ransom-letter.pdf. I ran the command:pdfinfo ransom-letter.pdf
+
+Key Finding: The creator/author of the file was Ann Gree Shepherd.
+
+Task 2: EXIF & Geolocation Analysis
+Camera Identification: Ran exiftool against the attached photo (letter-image.jpg) to check the camera metadata.
+
+Key Finding: Camera model used was Canon EOS R6.
+
+Finding the Location: Checked the GPS coordinates embedded in the photo metadata (51°30'51.9"N 0°05'38.7"W) and searched them on Google Maps.
+
+Key Finding: The photo was taken at Milk Street.
+
+💡 Key Takeaway for SOC Roles
+Why does this matter in a real Security Operations Center or technical environment?
+
+Digital forensics matters in a real SOC because attackers and cybercriminals almost always leave digital fingerprints behind—whether it's inside a phishing document, an attached image, or system logs. Knowing how to extract metadata allows an analyst to quickly uncover who created a file, what tools they used, or where an attack originated from.
